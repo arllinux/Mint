@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# emmenager.sh
+# mint17manager.sh
 # 
-# (c) Niki Kovacs, 2014
-# Modifié par Jean-Pierre Antinoux - juin 2014
+# script original (c) Niki Kovacs, 2014
+# Adapté par Jean-Pierre Antinoux - juin 2014
 
 CWD=$(pwd)
 
