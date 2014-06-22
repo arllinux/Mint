@@ -56,6 +56,7 @@ wget http://sloteur.free.fr/wal/fonds_arllinux.tar.gz
 tar xvzf fonds_arllinux.tar.gz
 rm fonds_arllinux.tar.gz
 chmod 0644 /usr/share/backgrounds/*.jpg
+chown root:root /usr/share/backgrounds/*.jpg
 
 # Ranger les icônes à leur place
 echo ":: Installation des icônes supplémentaires."
