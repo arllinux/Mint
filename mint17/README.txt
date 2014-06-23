@@ -1,8 +1,8 @@
-Elementary OS
+Mint 17
 -------------
 
 Adaptation du script de Niki Kovacs <info@microlinux.fr> à appliquer post installation
-sur une distribution Elementary 0S 0.2
+sur une distribution Mint 17
 
 jpantinoux <sloteur@free.fr>
 samedi 21 juin 2014, 21:28:59 (UTC+0200)
