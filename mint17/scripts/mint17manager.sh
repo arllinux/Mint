@@ -25,15 +25,21 @@ if [ $? = "0" ]
     
 # Configuration de Bash
 echo ":: Configuration de bash pour l'administrateur."
-cat $CWD/../bash/invite_root > /root/.bash_aliases
-chown root:root /root/.bash_aliases
-chmod 0644 /root/.bash_aliases
+cat $CWD/../bash/invite_root > /root/.bashrc
+chown root:root /root/.bashrc
+chmod 0644 /root/.bashrc
 source ~/.bashrc
 
 echo ":: Configuration de Bash pour les utilisateurs."
-cat $CWD/../bash/invite_users > /etc/skel/.bash_aliases
-chown root:root /etc/skel/.bash_aliases
-chmod 0644 /etc/skel/.bash_aliases
+cat $CWD/../bash/invite_users > /etc/skel/.bashrc
+chown root:root /etc/skel/.bashrc
+chmod 0644 /etc/skel/.bashrc
+
+echo ":: Configuration de bash pour l'utilisateur courant."
+cat $CWD/../bash/invite_users > /home/$nom/.bashrc
+chown $nom:$nom /home/$nom/.bashrc
+chmod 0644 /home/$nom/.bashrc
+source /home/$nom/.bashrc
 
 # Configuration de Vim
 echo ":: Configuration de Vim."
