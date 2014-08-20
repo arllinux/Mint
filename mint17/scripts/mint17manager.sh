@@ -92,6 +92,9 @@ apt-get -y autoremove --purge $CHOLESTEROL
 PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets)
 apt-get -y install $PAQUETS
 
+# Installation des extras pour test
+apt-get --assume-yes install ubuntu-restricted-extras
+
 # Désactiver l'IPV6
 echo ":: Désactivation de l'ipv6. ::"
 cp /etc/sysctl.conf /etc/sysctl.conf_old
