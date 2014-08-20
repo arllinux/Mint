@@ -57,12 +57,12 @@ cat $CWD/../grub/etc/default/grub_800x600 > /etc/default/grub
 update-grub
 
 # Ranger les fonds d'écran à leur place
-cd /usr/share/backgrounds/
+cd /usr/share/backgrounds/linuxmint-qiana/
 wget http://sloteur.free.fr/wal/fonds_arllinux.tar.gz
 tar xvzf fonds_arllinux.tar.gz
 rm fonds_arllinux.tar.gz
-chmod 0644 /usr/share/backgrounds/*.jpg
-chown root:root /usr/share/backgrounds/*.jpg
+chmod 0644 /usr/share/backgrounds/linuxmint-qiana*.jpg
+chown root:root /usr/share/backgrounds/linuxmint-qiana*.jpg
 
 # Ranger les icônes à leur place
 echo ":: Installation des icônes supplémentaires."
@@ -109,10 +109,6 @@ mv webcore-fonts/vista /usr/share/fonts/truetype/
 unzip Eurostile.zip -d /usr/share/fonts/truetype/
 fc-cache -f -v
 cd -
-
-su - nom
-cp -v /etc/skel/.bash* .
-source ~/.bashrc
 
 echo ":: Réglages de base terminés - Redémarrage obligatoire ::"
     else
