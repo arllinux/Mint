@@ -90,7 +90,7 @@ apt-get -y autoremove --purge $CHOLESTEROL
 
 # Installer les paquets supplémentaires
 PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets)
-apt-get -assume-yes install $PAQUETS
+apt-get --assume-yes install $PAQUETS
 
 # Désactiver l'IPV6
 echo ":: Désactivation de l'ipv6. ::"
