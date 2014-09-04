@@ -1,6 +1,5 @@
 # Paquets supplémentaires à installer
 audacity
-ardour
 dconf-tools
 gimp-dcraw
 gimp-help-fr
@@ -8,12 +7,12 @@ openshot
 kdenlive
 inkscape
 scribus
-ubuntu-restricted-extra
 language-pack-gnome-de-base
 language-pack-fr
 language-pack-fr-base
 language-pack-gnome-fr
 language-pack-gnome-fr-base
+thunderbird-locale-fr
 openssh-server
 vim
 subversion
