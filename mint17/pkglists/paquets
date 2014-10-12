@@ -13,6 +13,8 @@ language-pack-fr-base
 language-pack-gnome-fr
 language-pack-gnome-fr-base
 thunderbird-locale-fr
+# Pour pouvoir utiliser le correcteur orthographique de LibreOffice
+python3-uno
 openssh-server
 vim
 subversion
