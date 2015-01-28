@@ -1,10 +1,11 @@
 # Paquets supplémentaires à installer
-audacity
-dconf-tools
+calibre
+skype
+pdfmod
+mtpaint
 gimp-dcraw
 gimp-help-fr
 openshot
-kdenlive
 inkscape
 scribus
 language-pack-gnome-de-base
@@ -15,10 +16,11 @@ language-pack-gnome-fr-base
 thunderbird-locale-fr
 # Pour pouvoir utiliser le correcteur orthographique de LibreOffice
 python3-uno
+ttf-mscorefonts-installer
+
+dconf-tools
 openssh-server
 vim
 subversion
-vlc
 tree
-ttf-mscorefonts-installer
 sysv-rc-conf
