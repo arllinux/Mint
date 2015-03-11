@@ -25,15 +25,11 @@ if [ $? = "0" ]
     
 # Configuration de Bash
 echo ":: Configuration de bash pour l'administrateur."
-cat $CWD/../bash/invite_root > /root/.bash_aliases
-chown root:root /root/.bash_aliases
-chmod 0644 /root/.bash_aliases
-source ~/.bashrc
+cat $CWD/../bash/invite_root > /root/.bashrc
+bash -c source ~/.bashrc
 
 echo ":: Configuration de Bash pour les utilisateurs."
 cat $CWD/../bash/invite_users > /etc/skel/.bash_aliases
-chown root:root /etc/skel/.bash_aliases
-chmod 0644 /etc/skel/.bash_aliases
 
 # Configuration de Vim
 echo ":: Configuration de Vim."
@@ -102,15 +98,11 @@ tar xvzf webcore-fonts-3.0.tar.gz
 mv webcore-fonts/vista /usr/share/fonts/truetype/
 unzip Eurostile.zip -d /usr/share/fonts/truetype/
 fc-cache -f -v
-cd -
-
-su - nom
-cp -v /etc/skel/.bash* .
-source ~/.bashrc
 
 echo ":: Réglages de base terminés - Redémarrage obligatoire ::"
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
     fi
-    exit 0
 fi
+
+exit 0
