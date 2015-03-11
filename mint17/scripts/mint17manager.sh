@@ -21,32 +21,18 @@ if [ $? = "0" ]
     done
     cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
-        then
+    then
     
 # Configuration de Bash
 echo ":: Configuration de bash pour l'administrateur."
 cat $CWD/../bash/invite_root > /root/.bashrc
-<<<<<<< HEAD
 bash -c source ~/.bashrc
 
 echo ":: Configuration de Bash pour les utilisateurs."
-cat $CWD/../bash/invite_users > /etc/skel/.bash_aliases
-=======
-chown root:root /root/.bashrc
-chmod 0644 /root/.bashrc
-source ~/.bashrc
-
-echo ":: Configuration de Bash pour les utilisateurs."
 cat $CWD/../bash/invite_users > /etc/skel/.bashrc
-chown root:root /etc/skel/.bashrc
-chmod 0644 /etc/skel/.bashrc
 
 echo ":: Configuration de bash pour l'utilisateur courant."
 cat $CWD/../bash/invite_users > /home/$nom/.bashrc
-chown $nom:$nom /home/$nom/.bashrc
-chmod 0644 /home/$nom/.bashrc
-source /home/$nom/.bashrc
->>>>>>> 5b6ebce37ccab3667bd47b3a120e2e3e8a118c6d
 
 # Configuration de Vim
 echo ":: Configuration de Vim."
@@ -118,10 +104,6 @@ tar xvzf webcore-fonts-3.0.tar.gz
 mv webcore-fonts/vista /usr/share/fonts/truetype/
 unzip Eurostile.zip -d /usr/share/fonts/truetype/
 fc-cache -f -v
-<<<<<<< HEAD
-=======
-cd -
->>>>>>> 5b6ebce37ccab3667bd47b3a120e2e3e8a118c6d
 
 echo ":: Réglages de base terminés - Redémarrage obligatoire ::"
     else
