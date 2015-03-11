@@ -1,0 +1,20 @@
+# En cas de mon fonctionnement de la caméra avec Skype
+
+Nous sommes sou Linux Mint 17
+Aller dans
+	Système
+		Préférences
+			Menu principal
+
+Dans la colonne de gauche, cliquer sur :
+	Internet
+		Nouvel élément
+
+Une fenêtre s'ouvre
+	Nom --> Skype2
+	commande : env LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so /usr/bin/skype
+	Icône : Mettre celle de Skype (dans répertoire /usr/share
+
+Valider
+
+PS : Masquer l'icône de Skype

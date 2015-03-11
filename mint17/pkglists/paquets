@@ -1,6 +1,8 @@
 # Paquets supplémentaires à installer
-audacity
-dconf-tools
+calibre
+skype
+pdfmod
+mtpaint
 gimp-dcraw
 gimp-help-fr
 openshot
@@ -11,10 +13,14 @@ language-pack-fr
 language-pack-fr-base
 language-pack-gnome-fr
 language-pack-gnome-fr-base
+thunderbird-locale-fr
+# Pour pouvoir utiliser le correcteur orthographique de LibreOffice
+python3-uno
+ttf-mscorefonts-installer
+
+dconf-tools
 openssh-server
-ubuntu-restricted-extras
 vim
 subversion
-vlc
 tree
 sysv-rc-conf
