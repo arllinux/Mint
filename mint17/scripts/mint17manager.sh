@@ -21,25 +21,18 @@ if [ $? = "0" ]
     done
     cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
-        then
+    then
     
 # Configuration de Bash
 echo ":: Configuration de bash pour l'administrateur."
 cat $CWD/../bash/invite_root > /root/.bashrc
-chown root:root /root/.bashrc
-chmod 0644 /root/.bashrc
-source ~/.bashrc
+bash -c source ~/.bashrc
 
 echo ":: Configuration de Bash pour les utilisateurs."
 cat $CWD/../bash/invite_users > /etc/skel/.bashrc
-chown root:root /etc/skel/.bashrc
-chmod 0644 /etc/skel/.bashrc
 
 echo ":: Configuration de bash pour l'utilisateur courant."
 cat $CWD/../bash/invite_users > /home/$nom/.bashrc
-chown $nom:$nom /home/$nom/.bashrc
-chmod 0644 /home/$nom/.bashrc
-source /home/$nom/.bashrc
 
 # Configuration de Vim
 echo ":: Configuration de Vim."
@@ -111,11 +104,11 @@ tar xvzf webcore-fonts-3.0.tar.gz
 mv webcore-fonts/vista /usr/share/fonts/truetype/
 unzip Eurostile.zip -d /usr/share/fonts/truetype/
 fc-cache -f -v
-cd -
 
 echo ":: Réglages de base terminés - Redémarrage obligatoire ::"
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
     fi
-    exit 0
 fi
+
+exit 0
