@@ -1,0 +1,12 @@
+# Réinstaller linux-audio et ALSA
+Parfois le son peut fonctionner mais peut disparaître pour une raison ou pour
+une autre (bidouillage).
+La méthode plus simple et rapide est de désinstaller et réinstaller correctement les paquets problématiques:
+
+Désinstallation:
+# apt-get --purge remove linux-sound-base alsa-base alsa-utils
+
+Réinstallation:
+# apt-get install linux-sound-base alsa-base alsa-utils
+
+Redémarrez puis essayez à nouveau.
