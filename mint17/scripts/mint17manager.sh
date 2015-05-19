@@ -8,8 +8,7 @@
 CWD=$(pwd)
 
 # Vérification de la syntaxe de l'utilisateur principal
-[ $USER != "root" ]
-if [ $? = "0" ]
+if [ $USER != "root" ]
     then
         echo "Pour exécuter ce script il faut être l'utilisateur root !"
     else
