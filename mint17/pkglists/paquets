@@ -14,13 +14,18 @@ language-pack-fr-base
 language-pack-gnome-fr
 language-pack-gnome-fr-base
 thunderbird-locale-fr
+leconjugueurlinux:i386
+cairo-dock
+k3b
+handbrake
+rawtherapee
 # Pour pouvoir utiliser le correcteur orthographique de LibreOffice
 python3-uno
 ttf-mscorefonts-installer
 
 dconf-tools
 openssh-server
-vim
 subversion
 tree
 sysv-rc-conf
+git

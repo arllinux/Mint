@@ -22,33 +22,35 @@ if [ $USER != "root" ]
         if [ $? = "0" ]
     then
     
-# Configuration de Bash
-echo ":: Configuration de bash pour l'administrateur."
+# Configuration des invites de commandes
+echo ":: Configuration invite de commande pour l'administrateur."
 cat $CWD/../bash/invite_root > /root/.bashrc
 bash -c source ~/.bashrc
 
-echo ":: Configuration de Bash pour les utilisateurs."
+echo ":: Configuration invite de commande pour les futurs utilisateurs."
 cat $CWD/../bash/invite_users > /etc/skel/.bashrc
 
-echo ":: Configuration de bash pour l'utilisateur courant."
+echo ":: Configuration invite de commande p our l'utilisateur courant."
 cat $CWD/../bash/invite_users > /home/$nom/.bashrc
 
 # Configuration de Vim
+apt-get -y install vim
 echo ":: Configuration de Vim."
 cat $CWD/../vim/vimrc.local > /etc/vim/vimrc.local
 chmod 0644 /etc/vim/vimrc.local
 
 # Mise en place du bootsplash
-echo ":: Mise en place du bootsplash. ::"
-cp $CWD/../bootsplash/wwl.tga /boot/grub/
+# echo ":: Mise en place du bootsplash. ::"
+# cp $CWD/../bootsplash/wwl.tga /boot/grub/
 
 # Configurer grub
-echo ":: Configuration de /etc/default/grub. ::"
-cp /etc/default/grub /etc/default/grub_old
-cat $CWD/../grub/etc/default/grub_800x600 > /etc/default/grub
-update-grub
+# echo ":: Configuration de /etc/default/grub. ::"
+# cp /etc/default/grub /etc/default/grub_old
+# cat $CWD/../grub/etc/default/grub_800x600 > /etc/default/grub
+# update-grub
 
 # Ranger les fonds d'écran à leur place
+# A améliorer l'activation automatique !!!!!
 cd /usr/share/backgrounds/linuxmint-qiana/
 wget http://sloteur.free.fr/wal/fonds_arllinux.tar.gz
 tar xvzf fonds_arllinux.tar.gz
@@ -88,10 +90,10 @@ apt-get --assume-yes install $PAQUETS
 apt-get --assume-yes install ubuntu-restricted-extra
 
 # Désactiver l'IPV6
-echo ":: Désactivation de l'ipv6. ::"
-cp /etc/sysctl.conf /etc/sysctl.conf_old
-cat $CWD/../ipv4-6/etc/sysctl.conf > /etc/sysctl.conf
-sysctl -p
+# echo ":: Désactivation de l'ipv6. ::"
+# cp /etc/sysctl.conf /etc/sysctl.conf_old
+# cat $CWD/../ipv4-6/etc/sysctl.conf > /etc/sysctl.conf
+# sysctl -p
 
 # Polices TrueType Windows Vista & Eurostile
 echo ":: Installation polices supplémentaires. ::"
