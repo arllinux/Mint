@@ -38,6 +38,16 @@ echo ":: Configuration de Vim."
 cat $CWD/../vim/vimrc.local > /etc/vim/vimrc.local
 chmod 0644 /etc/vim/vimrc.local
 
+# Mise en place du bootsplash
+# echo ":: Mise en place du bootsplash. ::"
+# cp $CWD/../bootsplash/wwl.tga /boot/grub/
+
+# Configurer grub
+# echo ":: Configuration de /etc/default/grub. ::"
+# cp /etc/default/grub /etc/default/grub_old
+# cat $CWD/../grub/etc/default/grub_800x600 > /etc/default/grub
+# update-grub
+
 # Ranger les fonds d'écran à leur place
 # A améliorer l'activation automatique !!!!!
 cd /usr/share/backgrounds/linuxmint-qiana/
@@ -78,6 +88,12 @@ apt-get --assume-yes install $PAQUETS
 
 # Installer les extras
 apt-get --assume-yes install ubuntu-restricted-extra
+
+# Désactiver l'IPV6
+# echo ":: Désactivation de l'ipv6. ::"
+# cp /etc/sysctl.conf /etc/sysctl.conf_old
+# cat $CWD/../ipv4-6/etc/sysctl.conf > /etc/sysctl.conf
+# sysctl -p
 
 # Polices TrueType Windows Vista & Eurostile
 echo ":: Installation polices supplémentaires. ::"
