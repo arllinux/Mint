@@ -7,6 +7,15 @@
 
 CWD=$(pwd)
 
+# Création du mot de passe administrateur
+echo ":: Création du mot de passe administrateur. ::"
+sudo passwd root
+
+# Connection en administrateur
+echo ":: Connection en administrateur.(su -) ::"
+echo ":: Taper le mot de passe pour accéder au compte administrateur ::"
+su -
+
 # Vérification de la syntaxe de l'utilisateur principal
 if [ $USER != "root" ]
     then
