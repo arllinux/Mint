@@ -40,12 +40,13 @@ chmod 0644 /etc/vim/vimrc.local
 
 # Ranger les fonds d'écran à leur place
 # A améliorer l'activation automatique !!!!!
-cd /usr/share/backgrounds/linuxmint-qiana/
+mkdir /ust/share/backgrounds/linuxmint-perso
+cd /usr/share/backgrounds/linuxmint-perso/
 wget http://sloteur.free.fr/wal/fonds_arllinux.tar.gz
 tar xvzf fonds_arllinux.tar.gz
 rm fonds_arllinux.tar.gz
-chmod 0644 /usr/share/backgrounds/linuxmint-qiana*.jpg
-chown root:root /usr/share/backgrounds/linuxmint-qiana*.jpg
+chmod 0644 /usr/share/backgrounds/linuxmint-peso/*.jpg
+chown root:root /usr/share/backgrounds/linuxmint-perso/*.jpg
 
 # Ranger les icônes à leur place
 echo ":: Installation des icônes supplémentaires."
