@@ -63,6 +63,10 @@ if [ -h /etc/fonts/conf.d/70-no-bitmaps.conf ]; then
 	dpkg-reconfigure fontconfig
 fi
 
+# Mettre en place le fichier qui permet la validation des messages
+echo ":: Validation messages dpkg ::"
+cat $CWD/../dpkg/local > /etc/apt/apt.conf.d/local
+
 # Recharger les informations et mettre à jour
 apt-get update
 apt-get -y dist-upgrade
