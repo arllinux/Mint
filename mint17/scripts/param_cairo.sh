@@ -17,9 +17,9 @@ CWD=$(pwd)
         if [ $? = "0" ]
         then
 				cd /home/$nom/.config/
-				wget http://sloteur.free.fr/param_mf/cairo-dock.tar.bz2
-				tar xvf cairo-dock.tar.bz2
-				rm cairo-dock.tar.bz2
+				wget http://sloteur.free.fr/param_mf/cairo-dock.tar.gz
+				tar xvf cairo-dock.tar.gz
+				rm cairo-dock.tar.gz
 				chown -R $nom:$nom /home/$nom/.config/cairo-dock
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
