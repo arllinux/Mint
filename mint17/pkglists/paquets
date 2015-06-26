@@ -14,6 +14,7 @@ language-pack-fr-base
 language-pack-gnome-fr
 language-pack-gnome-fr-base
 thunderbird-locale-fr
+firefox-locale-fr
 cairo-dock
 k3b
 handbrake
@@ -27,4 +28,3 @@ openssh-server
 subversion
 tree
 sysv-rc-conf
-git
