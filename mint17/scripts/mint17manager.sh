@@ -81,9 +81,6 @@ if [ $USER != "root" ]
     PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets)
     apt-get --assume-yes install $PAQUETS
     
-    # Installer les extras
-    apt-get --assume-yes install ubuntu-restricted-extra
-    
     # Polices TrueType Windows Vista & Eurostile
     echo ":: Installation polices supplémentaires. ::"
     cd /tmp
