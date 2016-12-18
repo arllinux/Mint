@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # libavcodec.sh
-# 
+# ppa pour codecs Firefox 50 
 # Jean-Pierre Antinoux - Décembre 2016
 
 CWD=$(pwd)
