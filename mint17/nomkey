@@ -1,0 +1,23 @@
+# Changer le nom d'un clé USB #
+
+Souvent il est pratique d'avoir un nom plus simple pour une clé USB par exemple
+
+Ma clé se nomme PKBACK# 001
+L'espace dans le nom peut poser problème dans un script
+
+Renommer
+
+Installer mtools :
+# apt-get install mtools
+
+Vérifier le nom de la clé :
+# mlabel -i /dev/sdb1 -s ::
+Volume label is PKBACK# 001
+
+Donner à la clé le nom de "mykey" 
+# mlabel -i /dev/sdb1 ::mykey
+
+Le nom se transforme en MYKEY (en majuscules)
+
+La modification s'applique instantanément
+
