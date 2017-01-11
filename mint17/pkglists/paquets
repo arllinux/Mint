@@ -1,7 +1,8 @@
 # Paquets supplémentaires à installer
 calibre
 skype
-pdfmod
+pdfmod # bugge souvent pourrait être remplacé par pdfshuffler
+pdfshuffler
 mtpaint
 gimp-dcraw
 gimp-help-fr
@@ -22,7 +23,7 @@ rawtherapee
 # Pour pouvoir utiliser le correcteur orthographique de LibreOffice
 python3-uno
 ttf-mscorefonts-installer
-
+# Outils administrateur
 dconf-tools
 openssh-server
 subversion
