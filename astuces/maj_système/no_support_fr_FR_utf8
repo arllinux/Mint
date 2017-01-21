@@ -1,13 +1,11 @@
-# Si vous êtes confronté au message suivant :
-# Warning: No support for locale: fr_FR.utf8
+# Si lors d'une mise à jour du système vous obtenez le message :
+"Warning: No support for locale: fr_FR.utf8"
 # suivez la procédure ci-dessous.
 
 
-# update-initramfs -u
-update-initramfs: Generating /boot/initrd.img-3.xx.x-xx-generic
-Warning: No support for locale: fr_FR.utf8
-
 L'avertissement n'est pas critique, mais si cela vous dérange ou provoque des troubles, essayez ce qui suit dans une fenêtre de terminal:
+
+Exécuter les 2 commandes suivantes :
 
 # locale-gen --purge --no-archive 
 
@@ -44,3 +42,5 @@ Generation complete.
 
 # update-initramfs -u
 update-initramfs: Generating /boot/initrd.img-3.xx.x-xx-generic
+
+"A la fin de celle-ci vous ne devez plus voir apparaitre l'erreur"

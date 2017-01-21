@@ -18,9 +18,9 @@ CWD=$(pwd)
         if [ $? = "0" ]
         then
 				cd /home/$nom
-				wget http://sloteur.free.fr/param_mf/mozilla.tar.bz2
-				tar xvf mozilla.tar.bz2
-				rm mozilla.tar.bz2
+				wget http://sloteur.free.fr/param_mf/mozilla.tar.gz
+				tar xvf mozilla.tar.gz
+				rm mozilla.tar.gz
 				chown -R $nom:$nom /home/$nom/.mozilla
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
