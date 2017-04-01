@@ -20,21 +20,27 @@ if [ $USER != "root" ]
     cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
     then
-    
-    mkdir /usr/share/backgrounds/linuxmint-perso
-    cd /usr/share/backgrounds/linuxmint-perso
-    wget http://sloteur.free.fr/arllinux/fonds_arllinux.tar.gz
-    tar xvzf fonds_arllinux.tar.gz
-    rm fonds_arllinux.tar.gz
-    chmod 0644 /usr/share/backgrounds/linuxmint-perso/*.jpg
-    chown root:root /usr/share/backgrounds/linuxmint-perso/*.jpg
-    cp $CWD/../wallpaper/linuxmint-perso.xml $WALXML
 
-    # Installer les paquets supplémentaires
-    PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets)
-    apt-get --assume-yes install $PAQUETS
-    
-echo ":: Réglages de base terminés ::"
+		# Installation des programmes				
+				read -p 'Voulez-vous installer kdenlive et la traduction française ?
+				(oui/non) : ' oui
+		if [ $oui = "oui" ]
+				then
+   
+		# Installer les paquets supplémentaires
+    KDENLIVE=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/kdenlive)
+    apt-get --assume-yes install $KDENLIVE
+		fi
+		# Installer le fichier de configuration personnelle
+		if [ $oui = "oui" ]
+				then
+    		cd /home/$nom/.config/
+    		wget http://sloteur.free.fr/arllinux/kdenliverc.tar.gz
+    		tar xvzf kdenliverc.tar.gz
+    		rm kdenliverc.tar.gz
+    		chown $nom:$nom /home/$nom/.config/kdenliverc
+		fi
+echo ":: Réglages de base terminés. Il faut redéfinir les raccourcis clavier ::"
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
     fi
