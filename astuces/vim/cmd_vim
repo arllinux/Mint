@@ -28,14 +28,13 @@ de paramétrer vim, et d'installer les outils de bases.
 
 # Pour insérer un # et un espace devant chaque ligne :
 
-Il faut se placer sur la première lettre de la première ligne, puis il faut
-taper le # et l'espace.
-Il faut se placer sur le premier #, puis il faut utiliser la combinaison de
+Il faut se placer sur la première lettre de la première ligne, 
 touche : Ctrl + v
 Vim passe en mode : visuel bloc
-Pour copier notre sélection il faut presser la touche "Y"
-Ensuite il faut se placer sur la première lettre de la ligne suivante et
-presser la combinaison de touche : Shift + p
+Avec la touche j descendre jusqu'à la dernière ligne à commenter.
+Puis taper la touche "I" en majuscule.
+Taper # et l'espace
+Puis faire 2 fois Echap.
 
 # Voici le résultat :
 
