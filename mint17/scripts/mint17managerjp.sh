@@ -27,11 +27,11 @@ if [ $USER != "root" ]
     echo ":: Configuration invite de commande pour l'administrateur."
     cat $CWD/../bash/invite_root > /root/.bashrc
     
-    echo ":: Configuration invite de commande pour les futurs utilisateurs."
-    cat $CWD/../bash/invite_users > /etc/skel/.bashrc
-    
     echo ":: Configuration invite de commande p our l'utilisateur courant."
     cat $CWD/../bash/invite_users > /home/$nom/.bashrc
+    
+		echo ":: Configuration invite de commande pour les futurs utilisateurs."
+    cat $CWD/../bash/invite_users > /etc/skel/.bashrc
     
     # Configuration de Vim
     echo ":: Configuration de Vim."

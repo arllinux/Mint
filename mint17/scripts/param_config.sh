@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# param_firefox.sh
+# param_config.sh
 # 
 # script original (c) Niki Kovacs, 2014
-# Adapté par Jean-Pierre Antinoux - juin 2014
+# Adapté par Jean-Pierre Antinoux - décembre 2017
 
 CWD=$(pwd)
 
@@ -17,11 +17,11 @@ CWD=$(pwd)
     cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
         then
-				cd /home/$nom
-				wget http://sloteur.free.fr/param_mf/mozilla.tar.gz
-				tar xvf mozilla.tar.gz
-				rm mozilla.tar.gz
-				chown -R $nom:$nom /home/$nom/.mozilla
+				cd /home/$nom/.cache
+				wget http://sloteur.free.fr/param_mf/pour.config.tar.bz2
+				tar xvf pour.config.tar.bz2
+				rm pour.config.tar.bz2
+				chown -R $nom:$nom /home/$nom/.cache
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
     fi
