@@ -81,12 +81,12 @@ if [ $USER != "root" ]
     apt-get -y dist-upgrade
     
     # Suppression et ajout de paquets
-    echo ":: Suppression et ajout de paquets. ::"
-    # Supprimer les paquets inutiles
+    echo ":: Suppression de paquets. ::"
     CHOLESTEROL=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/cholesterol)
     apt-get -y autoremove --purge $CHOLESTEROL
     
     # Installer les paquets supplémentaires
+    echo ":: Ajout de paquets. ::"
     PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets)
     apt-get --assume-yes install $PAQUETS
     
@@ -100,11 +100,11 @@ if [ $USER != "root" ]
     echo ":: Installation polices supplémentaires. ::"
     cd /tmp
     rm -rf /usr/share/fonts/truetype/{Eurostile,vista}
-    wget -c http://www.microlinux.fr/download/Eurostile.zip
+    # wget -c http://www.microlinux.fr/download/Eurostile.zip
     wget -c http://avi.alkalay.net/software/webcore-fonts/webcore-fonts-3.0.tar.gz
     tar xvzf webcore-fonts-3.0.tar.gz
     mv webcore-fonts/vista /usr/share/fonts/truetype/
-    unzip Eurostile.zip -d /usr/share/fonts/truetype/
+    # unzip Eurostile.zip -d /usr/share/fonts/truetype/
     fc-cache -f -v
 
 echo ":: Réglages de base terminés - Redémarrage obligatoire ::"
