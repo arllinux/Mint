@@ -40,4 +40,5 @@ subversion
 tree
 sysv-rc-conf
 # gtkhash = ajouté à la liste des outils le 27/11/2017
+# Vérification de l'intégrité des images disque.
 gtkhash
