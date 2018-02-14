@@ -6,6 +6,7 @@ set scrolloff=15
 set autoindent
 set tabstop=2
 set modeline modelines=1
+"set spell spelllang=fr
 "
 " Revenir à la dernière ligne éditée lorsqu'on ouvre un fichier
 if has("autocmd")
@@ -26,3 +27,17 @@ endif
 "[Ctrl-B] ajoute une paire de balises <strong></strong> autour du mot sélectionné
 :vmap <C-B> "zdi<strong><C-R>z</strong><ESC>
 
+"Correction orthographique en français.
+"nnoremap <F7> :setlocal spell!<CR> 
+
+" spell checking
+function! ToggleSpellLang()
+	" toggle between en and fr
+	if &spelllang =~# 'en'
+		:set spelllang=fr
+	else
+		:set spelllang=en
+	endif
+endfunction
+nnoremap <F7> :setlocal spell!<CR> " toggle spell on or off
+nnoremap <F8> :call ToggleSpellLang()<CR> " toggle language

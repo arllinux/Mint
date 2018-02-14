@@ -1,3 +1,14 @@
+# Outils administrateur
+# vim = ajouté à la liste des outils le 27/11/2017
+vim
+dconf-tools
+openssh-server
+subversion
+tree
+sysv-rc-conf
+# gtkhash = ajouté à la liste des outils le 27/11/2017
+# Vérification de l'intégrité des images disque.
+gtkhash
 # Paquets supplémentaires à installer
 calibre
 skype
@@ -31,14 +42,3 @@ pinta
 # Pour pouvoir utiliser le correcteur orthographique de LibreOffice
 python3-uno
 ttf-mscorefonts-installer
-# Outils administrateur
-# vim = ajouté à la liste des outils le 27/11/2017
-vim
-dconf-tools
-openssh-server
-subversion
-tree
-sysv-rc-conf
-# gtkhash = ajouté à la liste des outils le 27/11/2017
-# Vérification de l'intégrité des images disque.
-gtkhash
