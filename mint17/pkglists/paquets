@@ -21,10 +21,10 @@ gimp-help-fr
 openshot
 inkscape
 scribus
-language-pack-gnome-de-base
-language-pack-fr
-language-pack-fr-base
-language-pack-gnome-fr
+# Ces trois paquets son installés par la commande language-pack-gnome-fr-base
+# language-pack-fr
+# language-pack-fr-base
+# language-pack-gnome-fr
 language-pack-gnome-fr-base
 thunderbird-locale-fr
 firefox-locale-fr
