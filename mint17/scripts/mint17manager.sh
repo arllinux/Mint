@@ -85,7 +85,7 @@ if [ $USER != "root" ]
     echo ":: Installation polices supplémentaires. ::"
     cd /tmp
     rm -rf /usr/share/fonts/truetype/{Eurostile,vista}
-    wget -c http://www.microlinux.fr/download/Eurostile.zip
+#    wget -c http://www.microlinux.fr/download/Eurostile.zip
     wget -c http://avi.alkalay.net/software/webcore-fonts/webcore-fonts-3.0.tar.gz
     tar xvzf webcore-fonts-3.0.tar.gz
     mv webcore-fonts/vista /usr/share/fonts/truetype/
