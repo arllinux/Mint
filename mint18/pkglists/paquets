@@ -1,0 +1,46 @@
+# Outils administrateur
+# vim = ajouté à la liste des outils le 27/11/2017
+vim
+dconf-tools
+openssh-server
+subversion
+tree
+sysv-rc-conf
+# gtkhash = ajouté à la liste des outils le 27/11/2017
+# Vérification de l'intégrité des images disque.
+gtkhash
+# Paquets supplémentaires à installer
+calibre
+skype
+# pdfmod, mtpaint 
+# = supprimé de la liste des outils le 27/11/2017
+# pdfmod bugge souvent est remplacé par pdfshuffler
+pdfshuffler
+gimp-dcraw
+gimp-help-fr
+openshot
+inkscape
+scribus
+# virtualbox
+# virtualbox-qt
+# Ces trois paquets son installés par la commande language-pack-gnome-fr-base
+# language-pack-fr
+# language-pack-fr-base
+# language-pack-gnome-fr
+language-pack-gnome-fr-base
+thunderbird-locale-fr
+firefox-locale-fr
+cairo-dock
+k3b
+handbrake
+rawtherapee
+# glabels,  
+# = ajoutés à la liste des outils le 27/11/2017
+glabels
+mypaint
+geany
+meld
+pinta
+# Pour pouvoir utiliser le correcteur orthographique de LibreOffice
+python3-uno
+ttf-mscorefonts-installer
