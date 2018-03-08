@@ -15,14 +15,14 @@ CWD=$(pwd)
     read nom
     done
     cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
-        if [ $? = "0" ]
+		 if [ $? = "0" ]
         then
-				cd /home/$nom
-				wget http://sloteur.free.fr/param_mf/mozilla.tar.gz
-				tar xvf mozilla.tar.gz
-				rm mozilla.tar.gz
-				chown -R $nom:$nom /home/$nom/.mozilla
-    else
-       echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
-    fi
+         cd /home/$nom
+         wget http://sloteur.free.fr/param_mf/mozilla.tar.gz
+         tar xvf mozilla.tar.gz
+         rm mozilla.tar.gz
+         chown -R $nom:$nom /home/$nom/.mozilla
+     else
+      echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
+   fi
 exit 0
