@@ -7,7 +7,7 @@ CWD=$(pwd)
 
 if [ $USER != "root" ] ;
     then
-	echo "Pour exécuter ce script il faut être l'utilisateur root !"
+      echo "Pour exécuter ce script il faut être l'utilisateur root !"
 else
 
   # Pour colorer les commandes de git
@@ -18,8 +18,8 @@ else
       echo " ==============================================="
     else
       echo " ==================================================="
-			echo " == !! Configuration de la couleur non réussie... =="
-			echo " ==================================================="
+      echo " == !! Configuration de la couleur non réussie... =="
+      echo " ==================================================="
     fi
 
   # Pour supprimer le long message lors de l'export de données
