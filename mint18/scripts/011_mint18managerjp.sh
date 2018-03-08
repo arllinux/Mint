@@ -4,6 +4,7 @@
 # 
 # script original (c) Niki Kovacs, 2014
 # Adapté par Jean-Pierre Antinoux - juin 2015
+# Vérifié en mars 2018 par JPA
 
 CWD=$(pwd)
 WALXML="/usr/share/gnome-background-properties/"
