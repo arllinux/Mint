@@ -16,11 +16,11 @@ CWD=$(pwd)
     cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
         then
-				cd /home/$nom/.config/
-				wget http://sloteur.free.fr/param_mf/cairo-dock.tar.gz
-				tar xvf cairo-dock.tar.gz
-				rm cairo-dock.tar.gz
-				chown -R $nom:$nom /home/$nom/.config/cairo-dock
+         cd /home/$nom/.config/
+         wget http://sloteur.free.fr/param_mf/cairo-dock.tar.gz
+         tar xvf cairo-dock.tar.gz
+         rm cairo-dock.tar.gz
+         chown -R $nom:$nom /home/$nom/.config/cairo-dock
     else
        echo "Ce nom d'utilisateur n'existe pas. Réessayez !"
     fi
