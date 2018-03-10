@@ -13,7 +13,7 @@ CWD=$(pwd)
     echo "Veuillez saisir votre nom"
     read nom
     done
-    cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
+    cat /etc/passwd | grep bash | gawk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
         then
          cd /home/$nom/.config/

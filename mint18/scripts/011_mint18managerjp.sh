@@ -20,7 +20,7 @@ if [ $USER != "root" ]
     echo "Veuillez saisir votre nom"
     read nom
     done
-    cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
+    cat /etc/passwd | grep bash | gawk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
          then
     
@@ -116,6 +116,12 @@ if [ $USER != "root" ]
           PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets-base)
           apt-get --assume-yes install $PAQUETS
           
+         if [ -f "openshot" ];then
+           rm $CWD/openshot
+         fi
+         if [ -f "virtualbox-qt" ];then
+           rm $CWD/virtualbox-qt
+         fi
          if [ -f "listechoix" ];then
            rm $CWD/listechoix
          fi
@@ -139,8 +145,7 @@ if [ $USER != "root" ]
               14 "transmission" off
               15 "filezilla" off
               16 "virtualbox" off
-              17 "virtualbox-qt" off
-							18 "geany" off)
+							17 "geany" off)
       choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
       clear
       for choice in $choices
@@ -150,7 +155,7 @@ if [ $USER != "root" ]
                echo "pdfshuffler" >> listechoix
                ;;
            2)
-               echo "openshot" >> listechoix
+               echo "openshot" >> listechoix > openshot
                ;;
            3)
                echo "inkscape" >> listechoix
@@ -192,12 +197,9 @@ if [ $USER != "root" ]
                echo "filezilla" >> listechoix
                ;;
            16)
-               echo "virtualbox" >> listechoix
+               echo "virtualbox" >> listechoix > virtualbox-qt
                ;;
            17)
-               echo "virtualbox-qt" >> listechoix
-               ;;
-           18)
                echo "geany" >> listechoix
                ;;
          esac
@@ -210,6 +212,16 @@ if [ $USER != "root" ]
           echo "==============================================================="
           PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/listechoix)
           apt-get --assume-yes install $PAQUETS
+
+          # Si openshot à été installé...
+          if [ -f "openshot" ];then
+            apt-get --assume-yes install frei0r-plugins libgavl1
+          fi
+
+					# Si Virtualbox à été installé...
+          if [ -f "virtualbox-qt" ];then
+            apt-get --assume-yes install virtualbox-qt
+          fi
 
           # Désactiver l'IPV6
           echo "================================="

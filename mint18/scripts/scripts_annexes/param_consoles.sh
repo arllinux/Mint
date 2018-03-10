@@ -17,7 +17,7 @@ if [ $USER != "root" ]
     echo "Veuillez saisir votre nom"
     read nom
     done
-    cat /etc/passwd | grep bash | awk -F ":" '{print $1}' | grep -w $nom > /dev/null
+    cat /etc/passwd | grep bash | gawk -F ":" '{print $1}' | grep -w $nom > /dev/null
         if [ $? = "0" ]
          then
     
@@ -25,7 +25,7 @@ if [ $USER != "root" ]
     echo ":: Configuration invite de commande pour l'administrateur."
     cat $CWD/../bash/invite_root > /root/.bashrc
     
-    echo ":: Configuration invite de commande p our l'utilisateur courant."
+    echo ":: Configuration invite de commande pour l'utilisateur courant."
     cat $CWD/../bash/invite_users > /home/$nom/.bashrc
     
     echo ":: Configuration invite de commande pour les futurs utilisateurs."
