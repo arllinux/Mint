@@ -1,0 +1,3 @@
+# Passer Chromium en français
+
+apt-get install chromium-browser-l10n
