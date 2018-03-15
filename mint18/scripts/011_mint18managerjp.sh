@@ -4,7 +4,7 @@
 # 
 # script original (c) Niki Kovacs, 2014
 # Adapté par Jean-Pierre Antinoux - juin 2015
-# Vérifié et modifié en mars 2017 par JPA
+# Vérifié et modifié en mars 2018 par JPA
 
 CWD=$(pwd)
 WALXML="/usr/share/gnome-background-properties/"
@@ -125,7 +125,7 @@ if [ $USER != "root" ]
          if [ -f "listechoix" ];then
            rm $CWD/listechoix
          fi
-           touch listechoix
+
   		# Liste de choix
       cmd=(dialog --separate-output --checklist "Sélectionner ou désélectionner avec la barre d'espace :" 22 76 16)
       # any option can be set to default to "on" or "off"
@@ -204,7 +204,7 @@ if [ $USER != "root" ]
                ;;
          esac
       done
-      if [ $? = "0" ]
+      if [ -f "listechoix" ];
           then
           # Ajouter les paquets sélectionnés ci-dessus
           echo "==============================================================="
@@ -222,7 +222,7 @@ if [ $USER != "root" ]
           if [ -f "virtualbox-qt" ];then
             apt-get --assume-yes install virtualbox-qt
           fi
-
+      else
           # Désactiver l'IPV6
           echo "================================="
           echo "==   Désactivation de l'ipv6   =="
@@ -255,4 +255,3 @@ if [ $USER != "root" ]
    fi
 fi
 
-exit 0
