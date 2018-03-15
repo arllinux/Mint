@@ -1,5 +1,4 @@
 # Outils administrateur
-vim
 dconf-tools
 tree
 sysv-rc-conf

@@ -145,7 +145,7 @@ if [ $USER != "root" ]
               14 "transmission" off
               15 "filezilla" off
               16 "virtualbox" off
-							17 "geany" off)
+              17 "geany" off)
       choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
       clear
       for choice in $choices
@@ -252,6 +252,7 @@ if [ $USER != "root" ]
           echo "==    Ce nom d'utilisateur n'existe pas. Réessayez !      =="
           echo "============================================================"
      fi
+   fi
 fi
 
 exit 0
