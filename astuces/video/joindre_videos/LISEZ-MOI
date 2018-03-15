@@ -1,0 +1,41 @@
+#=========================
+Vous avez créé plusieurs petites vidéos que vous voudriez rassembler en une seule.
+Si vous passer par un éditeur vidéo comme :
+Openshot
+ou
+Kdenlive
+le réencodage sera obligatoire et risque de durer un long moment.
+
+Avec le petit script "concat.sh" vous pouvez réaliser ceci en quelques secondes.
+
+Prérequis :
+1
+il faut que tous les morceaux de vidéo aient une appelation qui commence par "out"
+Exemple :
+out_ssr-2018-03-15_20.20.42.mp4
+
+2
+Il faut que tous les morceaux soit dans le même format :
+mp4
+ogg
+webm
+etc...
+Par défaut c'est en "mp4"
+Il faut le changer, si nécessaire, en ouvrant le script avec xed dans votre dossier personnel.
+
+3
+Placer les vidéos dans le répertoire "joindre-videos" pour que le script puisse les lister
+
+4
+Ouvrir un teminal
+Se placer dans le dossier :
+$ /home/votre_nom/Vidéos/joindre_videos
+Lancer la procédure :
+$ ./concat.sh
+
+5
+Vous obtenez au bout d'une poignée de secondes un fichier vidéo au format voulu
+Exemple :
+15-03-2018.mp4
+
+C'est tout !

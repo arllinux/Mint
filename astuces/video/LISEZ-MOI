@@ -1,0 +1,22 @@
+#=========================
+Vous avez créé plusieurs petites vidéos que vous voudriez rassembler en une seule.
+Si vous passer par un éditeur vidéo comme :
+Openshot
+ou
+Kdenlive
+le réencodage sera obligatoire et risque de durer un long moment.
+
+Avec le petit script "concat.sh" vous pouvez réaliser ceci en quelques secondes.
+
+Pour mettre cet outil en place :
+Lancer le script :
+# ffmpeg-concatener.sh
+
+Il va installer dans votre dossier personnel :
+/home/$USER/Vidéos
+un répertoire nommé "joindre_videos"
+
+Vous pouvez quitter le compte root
+Revenez dans votre répertoire personnel et en mode graphique préparez vos vidéos à joindre.
+
+Les explications sont dans le fichier "LISEZ-MOI" du répertoire "joindre_videos"
