@@ -125,7 +125,7 @@ if [ $USER != "root" ]
          if [ -f "listechoix" ];then
            rm $CWD/listechoix
          fi
-         touch $CWD/listechoix
+           touch listechoix
   		# Liste de choix
       cmd=(dialog --separate-output --checklist "Sélectionner ou désélectionner avec la barre d'espace :" 22 76 16)
       # any option can be set to default to "on" or "off"
