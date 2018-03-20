@@ -6,6 +6,12 @@ ou
 Kdenlive
 le réencodage sera obligatoire et risque de durer un long moment.
 
+#=========================
+Avant de lancer le script pour installer les outils dans votre environnment de travail,
+si vous souhaitez disposer de petites vidéos pour tester, exécuter le script "001_archives_film.sh"
+pour disposer de 5 morceaux de film pour faire vos test.
+#=========================
+
 Avec le petit script "concat.sh" vous pouvez réaliser ceci en quelques secondes.
 
 Pour mettre cet outil en place :
@@ -16,7 +22,7 @@ Il va installer dans votre dossier personnel :
 /home/$USER/Vidéos
 un répertoire nommé "joindre_videos"
 
-Vous pouvez quitter le compte root
+Une fois le script "ffmpeg_concatener.sh" exécuté, vous pouvez quitter le compte root
 Revenez dans votre répertoire personnel et en mode graphique préparez vos vidéos à joindre.
 
 Les explications sont dans le fichier "LISEZ-MOI" du répertoire "joindre_videos"

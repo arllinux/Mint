@@ -1,12 +1,9 @@
 #=========================
-Vous avez créé plusieurs petites vidéos que vous voudriez rassembler en une seule.
-Si vous passer par un éditeur vidéo comme :
-Openshot
-ou
-Kdenlive
-le réencodage sera obligatoire et risque de durer un long moment.
+Si vous lisez ce texte à partir de votre dossier "Vidéos/joindre_videos"
+c'est que vous avez exécuté le script "ffmeg_concatener.sh".
+Bravo !
 
-Avec le petit script "concat.sh" vous pouvez réaliser ceci en quelques secondes.
+Avec le petit script "concat.sh" vous allez pouvoir assembler vos vidéos.
 
 Prérequis :
 1
@@ -27,7 +24,7 @@ Il faut le changer, si nécessaire, en ouvrant le script avec xed dans votre dos
 Placer les vidéos dans le répertoire "joindre-videos" pour que le script puisse les lister
 
 4
-Ouvrir un teminal
+Ouvrir un terminal
 Se placer dans le dossier :
 $ /home/votre_nom/Vidéos/joindre_videos
 Lancer la procédure :
@@ -39,3 +36,4 @@ Exemple :
 15-03-2018.mp4
 
 C'est tout !
+#=========================
