@@ -115,16 +115,12 @@ if [ $USER != "root" ]
           echo "================================="
           PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets-base)
           apt-get --assume-yes install $PAQUETS
-          
-         if [ -f "openshot" ];then
-           rm $CWD/openshot
+
+         # Supprime le fichier listechoix et recrée un fichier vide 
+         if [ -f "listechoix" ]; then
+           rm listechoix
          fi
-         if [ -f "virtualbox-qt" ];then
-           rm $CWD/virtualbox-qt
-         fi
-         if [ -f "listechoix" ];then
-           rm $CWD/listechoix
-         fi
+           touch listechoix
 
   		# Liste de choix
       cmd=(dialog --separate-output --checklist "Sélectionner ou désélectionner avec la barre d'espace :" 22 76 16)
@@ -155,7 +151,7 @@ if [ $USER != "root" ]
                echo "pdfshuffler" >> listechoix
                ;;
            2)
-               echo "openshot" >> listechoix > openshot
+               echo "openshot" >> listechoix
                ;;
            3)
                echo "inkscape" >> listechoix
@@ -197,14 +193,15 @@ if [ $USER != "root" ]
                echo "filezilla" >> listechoix
                ;;
            16)
-               echo "virtualbox" >> listechoix > virtualbox-qt
+               echo "virtualbox" >> listechoix
                ;;
            17)
                echo "geany" >> listechoix
                ;;
          esac
       done
-      if [ -f "listechoix" ];
+      [ -s "listechoix" ]
+         if [ $? = "0" ] ;
           then
           # Ajouter les paquets sélectionnés ci-dessus
           echo "==============================================================="
@@ -214,13 +211,15 @@ if [ $USER != "root" ]
           apt-get --assume-yes install $PAQUETS
 
           # Si openshot à été installé...
-          if [ -f "openshot" ];then
-            apt-get --assume-yes install frei0r-plugins libgavl1
+					cat listechoix | grep openshot
+          if [ $? = "0" ] ; then
+          apt-get --assume-yes install frei0r-plugins libgavl1
           fi
 
 					# Si Virtualbox à été installé...
-          if [ -f "virtualbox-qt" ];then
-            apt-get --assume-yes install virtualbox-qt
+					cat listechoix | grep virtualbox
+          if [ $? = "0" ] ; then
+          apt-get --assume-yes install virtualbox-qt
           fi
       else
           # Désactiver l'IPV6
@@ -251,7 +250,7 @@ if [ $USER != "root" ]
           echo "============================================================"
           echo "==    Ce nom d'utilisateur n'existe pas. Réessayez !      =="
           echo "============================================================"
-     fi
+      fi
    fi
 fi
 
