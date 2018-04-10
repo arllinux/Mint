@@ -221,7 +221,7 @@ if [ $USER != "root" ]
           if [ $? = "0" ] ; then
           apt-get --assume-yes install virtualbox-qt
           fi
-      else
+      	fi 
           # Désactiver l'IPV6
           echo "================================="
           echo "==   Désactivation de l'ipv6   =="
@@ -246,11 +246,10 @@ if [ $USER != "root" ]
           echo "============================================================"
           echo "==  Réglages de base terminés - Redémarrage obligatoire   =="
           echo "============================================================"
-          else
+      else
           echo "============================================================"
           echo "==    Ce nom d'utilisateur n'existe pas. Réessayez !      =="
           echo "============================================================"
-      fi
    fi
 fi
 

@@ -99,7 +99,7 @@ if [ $USER != "root" ]
           echo "================================="
           echo "==  Ajout de paquets de base   =="
           echo "================================="
-          PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets)
+          PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/../pkglists/paquets-base)
           apt-get --assume-yes install $PAQUETS
 
          # Supprime le fichier listechoix et recrée un fichier vide 
@@ -207,7 +207,7 @@ if [ $USER != "root" ]
           if [ $? = "0" ] ; then
           apt-get --assume-yes install virtualbox-qt
           fi
-      else
+				fi
           # Polices TrueType Windows Vista & Eurostile
           echo "=============================================="
           echo "==   Installation polices supplémentaires   =="
@@ -224,11 +224,10 @@ if [ $USER != "root" ]
           echo "============================================================"
           echo "==  Réglages de base terminés - Redémarrage obligatoire   =="
           echo "============================================================"
-          else
+      else
           echo "============================================================"
           echo "==    Ce nom d'utilisateur n'existe pas. Réessayez !      =="
           echo "============================================================"
-	    fi
    fi
 fi
 
