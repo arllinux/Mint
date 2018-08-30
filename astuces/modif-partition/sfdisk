@@ -1,0 +1,220 @@
+#=============================
+Récupération de mon disque dur 
+#=============================
+
+A la suite d'une erreur de manipulation sur le 2ème disque de mon poste de travail :
+J'ai, si je me souviens, bien modifié la taille de la partition sans modifier la taille du système de fichier.
+
+Ex : La taille de la partition était de 904 Go et la taille du système de fichier également.
+
+Après la modification la partition était de 850 Go et le système de fichier était toujours de 904 Go.
+
+Les données sont toujours présentes mais impossible d'y accéder.
+
+La solution vient de cette source :
+https://ubuntuforums.org/showthread.php?t=1513562
+
+Dans mon cas le disque principal /dev/sda fonctionne avec mon système dessus.
+Je peux donc travailler à partir de ce disque pour récupérer mon disque /dev/sdb.
+Si vous n'avez pas de disque fonctionnel il faudra démarrer sur un live-cd.
+
+#======================================
+# Récupérer des informations avec dmesg
+#======================================
+
+Se connecter en root
+
+
+[root@blueking:/mnt] # dmesg | tail
+[ 7673.680012] EXT4-fs (sdb1): bad geometry: block count 236288086 exceeds size of device (222822400 blocks)
+
+On comprend qu'il y a quelque chose qui ne va pas :
+bad geometry: le nombre de blocs 236288086 et supérieur à la taille de la partition (222822400)
+
+# ===========================================================
+# Pas à pas en suivant les étapes de la source cité plus haut
+# ===========================================================
+
+TTRE
+Ext4 Le disque ne monte plus après redimentionnement d'une partition
+
+Problème résolu en suivant les étapes suivantes
+
+#========================
+# Backup du mbr avec dd :
+#========================
+# Code:
+[root@blueking:/mnt] # dd if=/dev/sdb of=/mnt/usb bs=512 count=1
+
+#==================================
+Calcul de la taille de la partition
+#==================================
+
+La sortie de la commande "dmesg" montre que le système de fichier fait 1890304688 secteur de taille.
+Ceci est calculé en multiplian la valeur après "block count" par 8 pour convertit en secteurs.
+236288086 x 8 = 1890304688
+Sortie de dmesg:
+# Code:
+
+[root@blueking:/mnt] # dmesg | tail
+[ 7673.680012] EXT4-fs (sdb1): bad geometry: block count 236288086 exceeds size of device (222822400 blocks)
+
+
+#===========================
+On peut commancer à réparer.
+#===========================
+
+On vas créer une sauvegarde de la table de partition avec sfdisk:
+# Code:
+
+[root@blueking:/mnt] # sfdisk -d /dev/sdb > PT.txt
+
+Créer une copie de PT.txt au cas ou les étapes suivantes ne fonctionneraient pas.
+PT-old.txt
+Editer PT.txt
+Sur la ligne qui se réfère à /dev/sdb1, il faut la remplacer par celle-ci :
+# vim PT.txt
+---
+label: dos
+label-id: 0x000b07e9
+device: /dev/sdb
+unit: sectors
+
+/dev/sdb1 : start=        2048, size=  1890304688, type=83, bootable
+---
+
+La valeur de "size=" a été changé à partir du calcul que nous avons fait avec la valeur récupéré par la commande "dmesg" par ext4
+
+#===============================
+Modifier la table des partitions
+#===============================
+
+Maintenenant avec le fichier "PT.txt" corrigé, la table des partitions pourra être changée par les nouvelles valeurs.
+# Code:
+
+[root@blueking:/mnt] # sfdisk -f /dev/sdb -O PT.save < PT.txt
+
+#===========================================
+# Créer un répertoire pour tester le montage
+#===========================================
+
+Créer un répertoir où monter la partition
+# Code:
+
+[root@blueking:/mnt] # mdkdir /mnt/sdb1
+
+#=============================
+Monter proprement la partition
+#=============================
+
+Après ceci, /dev/sdb1 sera monté proprement avec :
+# Code:
+
+[root@blueking:/mnt] # mount -o ro /dev/sdb1 /mnt/sdb1
+
+
+
+Le système de fichier est effectué sans erreurs, aucune donnée n'est perdue et le système de fichier est relancé proprement.
+Merci beaucoup à thunes3, qui m'a accompagné pour régler ce problème par IRC.
+
+
+
+#======================
+Retour de la commande : 
+#======================
+
+[root@blueking:/mnt] # sfdisk -f /dev/sdb -O PT.save < PT.txt
+Vérification qu'aucun autre n'utilise le disque en ce moment OK
+
+Fichiers de sauvegarde :
+         MBR (index     0, taille   512) : PT.save-sdb-0x00000000.bak
+
+Disque /dev/sdb : 931,5 GiB, 1000203804160 octets, 1953523055 secteurs
+Unités : secteur de 1 × 512 = 512 octets
+Taille de secteur (logique / physique) : 512 octets / 512 octets
+taille d'E/S (minimale / optimale) : 512 octets / 512 octets
+Type d'étiquette de disque : dos
+Identifiant de disque : 0x000b07e9
+
+Situation précédente :
+
+Périphérique Amorçage Début        Fin   Secteurs Taille Id Type
+/dev/sdb1    *         2048 1782581247 1782579200   850G 83 Linux
+
+>>> Script d’en-tête accepté.
+>>> Script d’en-tête accepté.
+>>> Script d’en-tête accepté.
+>>> Script d’en-tête accepté.
+>>> Création d'une nouvelle étiquette pour disque de type DOS avec identifiant de disque 0x000b07e9.
+Une nouvelle partition 1 de type « Linux » et de taille 901,4 GiB a été créée.
+/dev/sdb2: 
+Nouvelle situation :
+
+Périphérique Amorçage Début        Fin   Secteurs Taille Id Type
+/dev/sdb1    *         2048 1890306735 1890304688 901,4G 83 Linux
+
+La table de partitions a été altérée.
+Appel d'ioctl() pour relire la table de partitions.
+Synchronisation des disques.
+
+#===================================================================================
+Après ça deux répertoires "Documents" et "bash" sont avec ?00000000 et inaccessibles
+#===================================================================================
+
+
+#===========================================
+Lancement de e2fsck pour nettoyer le système
+#===========================================
+
+
+[root@blueking:/mnt] # e2fsck -f -y -v -C 0 /dev/sdb1
+---
+---
+Le décompte des i-noeuds libres est erroné pour le groupe n°6880 (8177, décompté=8189).
+Corriger ? oui
+
+Le décompte des répertoires est erroné pour le groupe n°6880 (5, décompté=0).
+Corriger ? oui
+
+Le décompte des i-noeuds libres est erroné pour le groupe n°7136 (8396, décompté=8154).
+Corriger ? oui
+
+Le décompte des répertoires est erroné pour le groupe n°7136 (38, décompté=0).
+Corriger ? oui
+
+Le décompte des répertoires est erroné pour le groupe n°7200 (1, décompté=0).
+Corriger ? oui
+
+Le décompte des i-noeuds libres est erroné (58859880, décompté=58859650).
+Corriger ? oui
+
+---
+---
+
+/dev/sdb1: ***** LE SYSTÈME DE FICHIERS A ÉTÉ MODIFIÉ *****
+
+      212862 i-noeuds utilisés (0.36%, sur 59072512)
+        1927 fichiers non contigus (0.9%)
+         259 répertoires non contigus (0.1%)
+             nombre d'i-noeuds avec des blocs ind/dind/tind : 231/231/231
+             Histogramme des profondeurs d'extents : 177607/261
+   141769780 blocs utilisés (60.00%, sur 236288086)
+           0 bloc défectueux
+          37 fichiers de grande taille
+
+      163905 fichiers normaux
+       12806 répertoires
+          14 fichiers de périphérique en mode caractère
+          13 fichiers de périphérique en mode bloc
+           7 fifos
+  4294967256 liens
+       36100 liens symboliques (34943 liens symboliques rapides)
+           8 sockets
+------------
+      212635 fichiers
+
+#======================================================================
+Les répertoires "Documents" et "bash" ont disparus après cette commande.
+#======================================================================
+
+--- Fin ---
