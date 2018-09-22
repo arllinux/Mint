@@ -1,6 +1,6 @@
-#=============================
-Récupération de mon disque dur 
-#=============================
+#===============================
+# Récupération de mon disque dur 
+#===============================
 
 A la suite d'une erreur de manipulation sur le 2ème disque de mon poste de travail :
 J'ai, si je me souviens, bien modifié la taille de la partition sans modifier la taille du système de fichier.
@@ -46,9 +46,9 @@ Problème résolu en suivant les étapes suivantes
 # Code:
 [root@blueking:/mnt] # dd if=/dev/sdb of=/mnt/usb bs=512 count=1
 
-#==================================
-Calcul de la taille de la partition
-#==================================
+#====================================
+# Calcul de la taille de la partition
+#====================================
 
 La sortie de la commande "dmesg" montre que le système de fichier fait 1890304688 secteur de taille.
 Ceci est calculé en multiplian la valeur après "block count" par 8 pour convertit en secteurs.
@@ -60,9 +60,9 @@ Sortie de dmesg:
 [ 7673.680012] EXT4-fs (sdb1): bad geometry: block count 236288086 exceeds size of device (222822400 blocks)
 
 
-#===========================
-On peut commancer à réparer.
-#===========================
+#=============================
+# On peut commancer à réparer.
+#=============================
 
 On vas créer une sauvegarde de la table de partition avec sfdisk:
 # Code:
@@ -85,9 +85,9 @@ unit: sectors
 
 La valeur de "size=" a été changé à partir du calcul que nous avons fait avec la valeur récupéré par la commande "dmesg" par ext4
 
-#===============================
-Modifier la table des partitions
-#===============================
+#=================================
+# Modifier la table des partitions
+#=================================
 
 Maintenenant avec le fichier "PT.txt" corrigé, la table des partitions pourra être changée par les nouvelles valeurs.
 # Code:
@@ -103,9 +103,9 @@ Créer un répertoir où monter la partition
 
 [root@blueking:/mnt] # mdkdir /mnt/sdb1
 
-#=============================
-Monter proprement la partition
-#=============================
+#===============================
+# Monter proprement la partition
+#===============================
 
 Après ceci, /dev/sdb1 sera monté proprement avec :
 # Code:
@@ -119,9 +119,9 @@ Merci beaucoup à thunes3, qui m'a accompagné pour régler ce problème par IRC
 
 
 
-#======================
-Retour de la commande : 
-#======================
+#========================
+# Retour de la commande : 
+#========================
 
 [root@blueking:/mnt] # sfdisk -f /dev/sdb -O PT.save < PT.txt
 Vérification qu'aucun autre n'utilise le disque en ce moment OK
@@ -157,14 +157,14 @@ La table de partitions a été altérée.
 Appel d'ioctl() pour relire la table de partitions.
 Synchronisation des disques.
 
-#===================================================================================
-Après ça deux répertoires "Documents" et "bash" sont avec ?00000000 et inaccessibles
-#===================================================================================
+#=====================================================================================
+# Après ça deux répertoires "Documents" et "bash" sont avec ?00000000 et inaccessibles
+#=====================================================================================
 
 
-#===========================================
-Lancement de e2fsck pour nettoyer le système
-#===========================================
+#=============================================
+# Lancement de e2fsck pour nettoyer le système
+#=============================================
 
 
 [root@blueking:/mnt] # e2fsck -f -y -v -C 0 /dev/sdb1
@@ -213,8 +213,8 @@ Corriger ? oui
 ------------
       212635 fichiers
 
-#======================================================================
-Les répertoires "Documents" et "bash" ont disparus après cette commande.
-#======================================================================
+#========================================================================
+# Les répertoires "Documents" et "bash" ont disparus après cette commande.
+#========================================================================
 
 --- Fin ---
