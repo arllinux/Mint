@@ -103,111 +103,111 @@ if [ $USER != "root" ]
           apt-get --assume-yes install $PAQUETS
 
          # Supprime le fichier listechoix et recrée un fichier vide 
-         if [ -f "listechoix" ]; then
-           rm listechoix
-         fi
-           touch listechoix
-
-  		# Liste de choix
-      cmd=(dialog --separate-output --checklist "Sélectionner ou désélectionner avec la barre d'espace :" 22 76 16)
-      # any option can be set to default to "on" or "off"
-      options=(1 "pdfshuffler" off
-               2 "openshot" off
-               3 "inkscape" off
-               4 "scribus" off
-               5 "k3b" off
-               6 "handbrake" off
-               7 "rawtherapee" off
-               8 "mypaint" off
-               9 "pinta" off
-              10 "glabels" off
-              11 "midori" off
-              12 "gtkhash" off
-              13 "calibre" off
-              14 "transmission" off
-              15 "filezilla" off
-              16 "virtualbox" off
-              17 "geany" off)
-      choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-      clear
-      for choice in $choices
-      do
-          case $choice in
-           1)
-               echo "pdfshuffler" >> listechoix
-               ;;
-           2)
-               echo "openshot" >> listechoix
-               ;;
-           3)
-               echo "inkscape" >> listechoix
-               ;;
-           4)
-               echo "scribus" >> listechoix
-               ;;
-           5)
-               echo "k3b" >> listechoix
-               ;;
-           6)
-               echo "handbrake" >> listechoix
-               ;;
-           7)
-               echo "rawtherapee" >> listechoix
-               ;;
-           8)
-               echo "mypaint" >> listechoix
-               ;;
-           9)
-               echo "pinta" >> listechoix
-               ;;
-           10)
-               echo "glabels" >> listechoix
-               ;;
-           11)
-               echo "midori" >> listechoix
-               ;;
-           12)
-               echo "gtkhash" >> listechoix
-               ;;
-           13)
-               echo "calibre" >> listechoix
-               ;;
-           14)
-               echo "transmission" >> listechoix
-               ;;
-           15)
-               echo "filezilla" >> listechoix
-               ;;
-           16)
-               echo "virtualbox" >> listechoix
-               ;;
-           17)
-               echo "geany" >> listechoix
-               ;;
-         esac
-      done
-      [ -s "listechoix" ]
-         if [ $? = "0" ] ;
-          then
-          # Ajouter les paquets sélectionnés ci-dessus
-          echo "==============================================================="
-          echo "==                     Ajout de paquets                      =="
-          echo "==============================================================="
-          PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/listechoix)
-          apt-get --assume-yes install $PAQUETS
-
-          # Si openshot à été installé...
-					cat listechoix | grep openshot
-          if [ $? = "0" ] ; then
-          apt-get --assume-yes install frei0r-plugins libgavl1
-          fi
-
-					# Si Virtualbox à été installé...
-					cat listechoix | grep virtualbox
-          if [ $? = "0" ] ; then
-          apt-get --assume-yes install virtualbox-qt
-          fi
-				fi
+# 			 if [ -f "listechoix" ]; then
+#            rm listechoix
+#          fi
+#            touch listechoix
+# 
+#   		# Liste de choix
+#       cmd=(dialog --separate-output --checklist "Sélectionner ou désélectionner avec la barre d'espace :" 22 76 16)
+#       # any option can be set to default to "on" or "off"
+#       options=(1 "pdfshuffler" off
+#                2 "openshot" off
+#                3 "inkscape" off
+#                4 "scribus" off
+#                5 "k3b" off
+#                6 "handbrake" off
+#                7 "rawtherapee" off
+#                8 "mypaint" off
+#                9 "pinta" off
+#               10 "glabels" off
+#               11 "midori" off
+#               12 "gtkhash" off
+#               13 "calibre" off
+#               14 "transmission" off
+#               15 "filezilla" off
+#               16 "virtualbox" off
+#               17 "geany" off)
+#       choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+#       clear
+#       for choice in $choices
+#       do
+#           case $choice in
+#            1)
+#                echo "pdfshuffler" >> listechoix
+#                ;;
+#            2)
+#                echo "openshot" >> listechoix
+#                ;;
+#            3)
+#                echo "inkscape" >> listechoix
+#                ;;
+#            4)
+#                echo "scribus" >> listechoix
+#                ;;
+#            5)
+#                echo "k3b" >> listechoix
+#                ;;
+#            6)
+#                echo "handbrake" >> listechoix
+#                ;;
+#            7)
+#                echo "rawtherapee" >> listechoix
+#                ;;
+#            8)
+#                echo "mypaint" >> listechoix
+#                ;;
+#            9)
+#                echo "pinta" >> listechoix
+#                ;;
+#            10)
+#                echo "glabels" >> listechoix
+#                ;;
+#            11)
+#                echo "midori" >> listechoix
+#                ;;
+#            12)
+#                echo "gtkhash" >> listechoix
+#                ;;
+#            13)
+#                echo "calibre" >> listechoix
+#                ;;
+#            14)
+#                echo "transmission" >> listechoix
+#                ;;
+#            15)
+#                echo "filezilla" >> listechoix
+#                ;;
+#            16)
+#                echo "virtualbox" >> listechoix
+#                ;;
+#            17)
+#                echo "geany" >> listechoix
+#                ;;
+#          esac
+#       done
+#       [ -s "listechoix" ]
+#          if [ $? = "0" ] ;
+#           then
+#           # Ajouter les paquets sélectionnés ci-dessus
+#           echo "==============================================================="
+#           echo "==                     Ajout de paquets                      =="
+#           echo "==============================================================="
+#           PAQUETS=$(egrep -v '(^\#)|(^\s+$)' $CWD/listechoix)
+#           apt-get --assume-yes install $PAQUETS
+# 
+#           # Si openshot à été installé...
+# 					cat listechoix | grep openshot
+#           if [ $? = "0" ] ; then
+#           apt-get --assume-yes install frei0r-plugins libgavl1
+#           fi
+# 
+# 					# Si Virtualbox à été installé...
+# 					cat listechoix | grep virtualbox
+#           if [ $? = "0" ] ; then
+#           apt-get --assume-yes install virtualbox-qt
+#           fi
+# 				fi
           # Polices TrueType Windows Vista & Eurostile
           echo "=============================================="
           echo "==   Installation polices supplémentaires   =="
