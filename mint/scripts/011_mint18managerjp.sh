@@ -51,7 +51,7 @@ if [ $USER != "root" ]
           echo "===================================="
           echo "==  Mise en place du bootsplash   =="
           echo "===================================="
-          cp $CWD/../bootsplash/wwl.tga /boot/grub/
+          # cp $CWD/../bootsplash/wwl.tga /boot/grub/
           
           # Configurer grub
           echo "========================================="
@@ -60,27 +60,6 @@ if [ $USER != "root" ]
           cp /etc/default/grub /etc/default/grub_old
           cat $CWD/../grub/etc/default/grub_800x600 > /etc/default/grub
           update-grub
-          
-          # Ranger les fonds d'écran à leur place
-          echo "========================================="
-          echo "==  Ranger les nouveaux fonds d'écran  =="
-          echo "========================================="
-          mkdir /usr/share/backgrounds/linuxmint-perso
-          cd /usr/share/backgrounds/linuxmint-perso
-          wget http://sloteur.free.fr/arllinux/fonds_arllinux.tar.gz
-          tar xvzf fonds_arllinux.tar.gz
-          rm fonds_arllinux.tar.gz
-          chmod 0644 /usr/share/backgrounds/linuxmint-perso/*.jpg
-          chown root:root /usr/share/backgrounds/linuxmint-perso/*.jpg
-          cp $CWD/../wallpaper/linuxmint-perso.xml $WALXML
-          
-          # Ranger les icônes à leur place
-          echo "=============================================="
-          echo "==  Installation des icônes supplémentaires =="
-          echo "=============================================="
-          if [ -d /usr/share/pixmaps ]; then
-            cp -f $CWD/../pixmaps/* /usr/share/pixmaps/
-          fi
           
           # Activer les polices Bitmap
           echo "====================================="
