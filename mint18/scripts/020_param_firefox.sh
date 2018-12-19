@@ -6,6 +6,8 @@
 # Adapté par Jean-Pierre Antinoux - juin 2014
 
 CWD=$(pwd)
+SLO10rc='http://sloteur.free.fr/arllinux/nutyx10rc_0118'
+MOZ='pref-firefox-63.tar.gz'
 
 # Vérification de la syntaxe de l'utilisateur principal
     # Vérification du nom d'utilisateur
@@ -18,9 +20,9 @@ CWD=$(pwd)
 		 if [ $? = "0" ]
         then
          cd /home/$nom
-         wget http://sloteur.free.fr/param_mf/mozilla.tar.gz
-         tar xvf mozilla.tar.gz
-         rm mozilla.tar.gz
+         wget $SLO10rc/$MOZ
+         tar xvf $MOZ
+         rm $MOZ
          chown -R $nom:$nom /home/$nom/.mozilla
      else
       echo "Ce nom d'utilisateur n'existe pas. Réessayez !"

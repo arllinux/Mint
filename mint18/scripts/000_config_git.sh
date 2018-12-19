@@ -33,7 +33,8 @@ else
       echo " == !!! Suppression du message de configuration echoué  =="
       echo " ========================================================="
     fi
-    
+     bash -c 'git config --global user.email "jeanpierre.antinoux@free.fr"' 
+     bash -c 'git config --global user.name "arllinux"' 
 fi
 
 exit 0
