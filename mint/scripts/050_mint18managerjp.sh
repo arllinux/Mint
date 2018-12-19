@@ -190,13 +190,13 @@ if [ $USER != "root" ]
           apt-get --assume-yes install $PAQUETS
 
           # Si openshot à été installé...
-					cat listechoix | grep openshot
+          cat listechoix | grep openshot
           if [ $? = "0" ] ; then
           apt-get --assume-yes install frei0r-plugins libgavl1
           fi
 
-					# Si Virtualbox à été installé...
-					cat listechoix | grep virtualbox
+          # Si Virtualbox à été installé...
+          cat listechoix | grep virtualbox
           if [ $? = "0" ] ; then
           apt-get --assume-yes install virtualbox-qt
           fi
