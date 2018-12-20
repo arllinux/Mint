@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Script teamviewerOnOff
+# Le démon Teamviewer reste en route en tache de fond
+# Ce script permet de le manipuler - JPA - décembre 2018
+
+echo "#################################"
+echo "# Teste si le Daemon est actif  #"
+echo "#################################"
+sudo teamviewer daemon status
+echo "#################################"
+echo "# Faites votre choix .........  #"
+echo "#################################"
+echo "Lancer ou arrêter le daemon teamviewer ?"
+echo "Pour lancer taper  1"
+echo "Pour arrêter taper 2"
+read -p "Votre choix 1/2 : " oui
+ if [ $oui = 1 ]
+  then
+    sudo teamviewer daemon start
+    sudo teamviewer daemon enable
+    sudo teamviewer daemon status
+  else
+		if [ $oui = 2 ]
+			then
+        sudo teamviewer daemon disable
+        sudo teamviewer daemon stop
+        sudo teamviewer daemon status
+		  else
+		    exit
+		fi
+ fi
