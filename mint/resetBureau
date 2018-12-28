@@ -1,0 +1,5 @@
+# Pour remmettre le tableau de bord par défaut :
+# Mate
+gsettings reset-recursively org.mate.panel
+# Cinnamon
+gsettings reset-recursively org.cinnamon
