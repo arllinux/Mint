@@ -1,12 +1,12 @@
 # Outils administrateur
 dconf-tools
-tree
-gimp-dcraw
+# tree
+# gimp-dcraw
 gimp-help-fr
-language-pack-gnome-fr-base
-thunderbird-locale-fr
-firefox-locale-fr
+# language-pack-gnome-fr-base
+# thunderbird-locale-fr
+# firefox-locale-fr
 cairo-dock
 meld
-python3-uno
+# python3-uno
 ttf-mscorefonts-installer
