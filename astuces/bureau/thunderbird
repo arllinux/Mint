@@ -1,0 +1,27 @@
+# Si la syncro des carnets d'adresse et agenda se bloquent.
+
+network.cookie.same-site.enabled
+
+Passer la valeur à false
+
+# Si Lightning disparait lors d'un mise à jour :
+
+Cette procédure ne détruit pas les données de calendrier (testé avec succès).
+    Ouvrez Thunderbird.
+    Afficher le menu principal puis Préférences ou Options.
+    Afficher l’onglet « Avancé ».
+    Cliquez sur « éditeur de configuration ».
+    Taper dans la barre de recherche « extensions.installedDistroAddon.e2fda1a4-762b-4020-b5ad-a41df1933103 »
+    Faire un clique droit sur la valeur puis choisissez l’option « reset ».
+    Fermer l’éditeur de configuration.
+    Redémarrer Thunderbird.
+    Lightning devrait faire son retour.
+
+Lightning en FR (béta) disponible en xpi
+J’ai testé Lightning avec Sogo (cf premier commentaire) sur plusieurs machines et aucun soucis (Linux only).
+
+https://ftp.mozilla.org/pub/calendar/lightning/candidates/6.2b6-candidates/build1/linux-x86_64/
+
+Et pour obtenir la dernière version stable de Lightning compatible avec Thunderbird 60.xx,
+une installation de xul-ext-lightning après avoir supprimé la version béta ;)
+
