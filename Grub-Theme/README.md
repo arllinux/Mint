@@ -4,62 +4,61 @@
 
 ![ScreenShot](http://i.imgur.com/yQCOjnR.png)
 
-Okay so for the first steps you're going to want to determine what resolutions grub supports, this can be found by installing/building `hwinfo`, and running
+Ok, alors pour les premières étapes, vous allez vouloir déterminer quelles résolutions sont supportées par grub, vous pouvez le trouver en installant / construisant `hwinfo`, et en lançant
 
 ```
 hwinfo --framebuffer
 ```
 
-with root, or by rebooting and at the grub menu, open up the command line with 'C', and enter
+En root, ou en redémarrant et dans le menu grub, ouvrez la ligne de commande avec 'C', et entrez
 
 ```
 vbeinfo
 ```
 
-The outputs may be different. So after you find out your supported resolutions, download the one that matches your highest supported resolution (or the next one below it). Now to install it, just extract the tar.gz and run the `install.sh` script with root in a terminal. It'll ask you a few questions then install everything in its proper location.
+Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, téléchargez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer, extrayez simplement le fichier tar.gz et exécutez le script `install.sh` en root dans un terminal. Il vous posera quelques questions puis installera le tout à son emplacement approprié.
 
-### Requirements:
+### Exigences :
 
-You'll need to install the mscorefonts package and the imagemagick package. On Ubuntu the command is
+Vous aurez besoin d'installer le paquet mscorefonts et le paquet imagemagick. Sur Ubuntu, la commande est
 
 ```
 sudo apt-get install ttf-mscorefonts-installer imagemagick
 ```
 
-### Known Issues:
+### Problèmes connus :
 
-The `UserName.png` image needs to be converted to RGB in Gimp after installation. The image that you have to edit will be located in `/boot/grub/themes/SteamBP` in Ubuntu. Other distros place this directory somewhere else. I'm trying to figure out why ImageMagick keeps it as Grayscale.
-
+L’image `UserName.png` doit être convertie en RVB dans Gimp après l’installation. L'image que vous devez éditer sera située dans `/ boot / grub / themes / SteamBP` dans Ubuntu. D'autres distributions placent ce répertoire ailleurs. J'essaie de comprendre pourquoi ImageMagick le garde en niveaux de gris.
 ### FAQ:
 
-1.  **Why don't you make widescreen versions?**
+1.  **Pourquoi ne faites-vous pas des versions grand écran ? **
 
-    From experience, even when grub supports a widescreen resolution, the theme looks wonky. Also, I stick to the standard VESA BIOS Extension resolutions as a safe bet. However, you're free to experiment with any resolution independent themes.
+   Par expérience, même lorsque grub prend en charge une résolution d’écran large, le thème semble insignifiant. De plus, je m'en tiens aux résolutions standard de l'extension VESA BIOS Extension. Cependant, vous êtes libre d'expérimenter des thèmes indépendants de la résolution.
 
-2.  **How do I disable it?**
+2.  **Comment puis-je le désactiver ?**
 
-    Open up `/etc/default/grub` with root in your text editor of choice and find the line that says `GRUB_THEME=/some/directory`, then comment it out (put a '#' at the beginning of the line) or erase it, then save it. 
+    Ouvrez `/ etc /default/grub` en root dans votre éditeur de texte de votre choix et trouvez la ligne« GRUB_THEME = / some / directory », puis commentez-la (mettez un« # »au début de la ligne) ou effacez-le, puis enregistrez-le.
 
-    Then either do an `update-grub` with root (it's probably Ubuntu only), or run grub's `mkconfig` script with root (found in either `/grub`, `/boot/grub`, or `/boot/grub2`)
+     Ensuite, faites une commande `update-grub` avec root (probablement Ubuntu uniquement) ou exécutez le script` mkconfig` de grub avec root (présent dans `/grub`,` /boot/grub` ou `/boot/grub2`)
 
-    You can also run 
+     Vous pouvez aussi lancer
 
         grub-mkconfig -o /path/to/grub.cfg
         grub2-mkconfig -o /path/to/grub.cfg
 
-    on your distro with root
+    sur votre distribution en tant que root
 
-3.  **Can you add X distro icon?**
+3.  **Puis-je ajouter l'icone de ma distribution ?**
 
-    Yes. I'd be glad to, but one thing I'd need from you is to know what to name the icon, which you can find out by opening up your `grub.cfg` file and locating your distro's menu entry, so you'll have a line like
+    Oui. Je serais ravi de le faire, mais il faudrait que vous sachiez comment nommer l'icône, ce que vous pouvez trouver en ouvrant votre fichier `grub.cfg` et en localisant l'entrée du menu de votre distribution, pour que vous ' ll y aura une ligne comme
 
         menuentry "Gentoo" --class gentoo --class os...
 
-    Basically I need to know the distro class name to know what to name the icon.
+    En gros, j'ai besoin de connaître le nom de la classe de distribution pour savoir comment nommer l'icône.
 
-4.  **Does it work with Grub 1/Legacy**
+4.  **Fontionne-t-il avex grub 1 legacy**
 
-    Sadly, no. Grub 1 only has support for background images.
+    Malheureusement grub 1 ne supporte pas les images
 
 ### Steam Big Picture Grub Theme TODO list
 
