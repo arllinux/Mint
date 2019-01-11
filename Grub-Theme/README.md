@@ -44,7 +44,7 @@ sudo apt install ttf-mscorefonts-installer imagemagick
 Pour lancer l'installation :
 
 ---
-./install.sh
+sudo ./install.sh
 
 ---
 
