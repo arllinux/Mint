@@ -1,6 +1,6 @@
-# Steam Big Picture: Grub theme
+# Grub theme
 
-### Latest Screenshot
+### Ancien Screenshot
 
 ![ScreenShot](http://i.imgur.com/yQCOjnR.png)
 
@@ -19,6 +19,7 @@ vbeinfo
 Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, notez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer exécutez la commande suivant pour récupérer l'ensemble du dépot git :
 
 ---
+
 git clone https://github.com/arllinux/mint
 
 ---
@@ -26,6 +27,7 @@ git clone https://github.com/arllinux/mint
 Entrez dans le répertoire :
 
 ---
+
 cd Grub-Theme
 
 ---
@@ -102,15 +104,15 @@ Vous avez peut-être remarqué les fichiers GetProfileImage.sh.x et GetProfileIm
 
 ### Screenshots:
 
-**Old Version**
+**Ancienne version**
 ![ScreenShot](http://i.imgur.com/T4pbHXT.png)
 
-**New Version**
+**Nouvelles versions**
 
-### 1600x1200  OLD (Static Placement Version)
+### 1600x1200  Ancien (Placement statique)
 ![ScreenShot](http://i.imgur.com/RbZttjy.png)
 
-### 1600x1200 NEW (Relative Placement Version)
+### 1600x1200 Nouvelle (Placement relatif)
 ![ScreenShot](http://i.imgur.com/USD0JJP.png)
 
 ### 1024x768
@@ -119,7 +121,7 @@ Vous avez peut-être remarqué les fichiers GetProfileImage.sh.x et GetProfileIm
 ### 800x600
 ![ScreenShot](http://i.imgur.com/HxX2EsO.png)
 
-### 640x480 - NOT RECOMMENDED!!
+### 640x480 - Non recommandé !!
 ![ScreenShot](http://i.imgur.com/l5aT9fE.png)
 
 
