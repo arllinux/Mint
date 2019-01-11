@@ -1,6 +1,6 @@
 # Grub theme
 
-### Ancien Screenshot
+### Ancienne capture d'écran
 
 ![ScreenShot](http://i.imgur.com/yQCOjnR.png)
 
@@ -18,19 +18,18 @@ vbeinfo
 
 Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, notez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer exécutez la commande suivant pour récupérer l'ensemble du dépot git :
 
----
+```
 
 git clone https://github.com/arllinux/mint
 
----
+```
 
 Entrez dans le répertoire :
 
----
-
+```
 cd Grub-Theme
 
----
+```
 
 
 ### Exigences :
@@ -43,10 +42,10 @@ sudo apt install ttf-mscorefonts-installer imagemagick
 ```
 Pour lancer l'installation :
 
----
+```
 sudo ./install.sh
 
----
+```
 
 Il suffit de répondre aux quelques questions qui ont été traduites en français par le sloteur fou...
 
@@ -98,11 +97,11 @@ L’image `UserName.png` doit être convertie en RVB dans Gimp après l’instal
 
 - ~~Add bokeh dots to background~~
 
-#### One more thing
+#### Une dernière chose
 
 Vous avez peut-être remarqué les fichiers GetProfileImage.sh.x et GetProfileImage.sh. Celui avec l'extension .x est juste le fichier .sh "compilé" avec shc. La seule différence entre ces fichiers est que le fichier .x contient une clé API.
 
-### Screenshots:
+### Captures d'écran:
 
 **Ancienne version**
 ![ScreenShot](http://i.imgur.com/T4pbHXT.png)
