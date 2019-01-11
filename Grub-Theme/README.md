@@ -20,13 +20,16 @@ Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos
 
 ---
 git clone https://github.com/arllinux/mint
+
 ---
 
 Entrez dans le répertoire :
 
 ---
 cd Grub-Theme
+
 ---
+
 
 ### Exigences :
 
@@ -34,12 +37,15 @@ Vous aurez besoin d'installer le paquet mscorefonts et le paquet imagemagick. Su
 
 ```
 sudo apt install ttf-mscorefonts-installer imagemagick
+
 ```
 Pour lancer l'installation :
 
 ---
 ./install.sh
+
 ---
+
 Il suffit de répondre aux quelques questions qui ont été traduites en français par le sloteur fou...
 
 ### Problèmes connus :
