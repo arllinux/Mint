@@ -4,27 +4,40 @@
 
 ![ScreenShot](http://i.imgur.com/yQCOjnR.png)
 
-Ok, alors pour les premières étapes, vous allez vouloir déterminer quelles résolutions sont supportées par grub, vous pouvez le trouver en installant / construisant `hwinfo`, et en lançant
+Ok, alors pour les premières étapes, vous allez vouloir déterminer quelles résolutions sont supportées par grub, vous pouvez le trouver en installant `hwinfo`, et en lançant :
 
 ```
 hwinfo --framebuffer
 ```
 
-En root, ou en redémarrant et dans le menu grub, ouvrez la ligne de commande avec 'C', et entrez
+Ou en redémarrant et dans le menu grub, ouvrez la ligne de commande avec 'C', et entrez
 
 ```
 vbeinfo
 ```
 
-Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, téléchargez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer, extrayez simplement le fichier tar.gz et exécutez le script `install.sh` en root dans un terminal. Il vous posera quelques questions puis installera le tout à son emplacement approprié.
+Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, notez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer exécutez la commande suivant pour récupérer l'ensemble du dépot git :
+---
+git clone https://github.com/arllinux/mint
+---
+
+Entrez dans le répertoire :
+---
+cd Grub-Theme
+---
 
 ### Exigences :
 
-Vous aurez besoin d'installer le paquet mscorefonts et le paquet imagemagick. Sur Ubuntu, la commande est
+Vous aurez besoin d'installer le paquet mscorefonts et le paquet imagemagick. Sur Ubuntu, la commande est :
 
 ```
-sudo apt-get install ttf-mscorefonts-installer imagemagick
+sudo apt install ttf-mscorefonts-installer imagemagick
 ```
+Pour lancer l'installation :
+---
+./install.sh
+---
+Il suffit de répondre aux quelques questions qui ont été traduites en français par le sloteur fou...
 
 ### Problèmes connus :
 
