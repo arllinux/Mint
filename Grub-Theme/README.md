@@ -17,11 +17,13 @@ vbeinfo
 ```
 
 Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, notez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer exécutez la commande suivant pour récupérer l'ensemble du dépot git :
+
 ---
 git clone https://github.com/arllinux/mint
 ---
 
 Entrez dans le répertoire :
+
 ---
 cd Grub-Theme
 ---
@@ -34,6 +36,7 @@ Vous aurez besoin d'installer le paquet mscorefonts et le paquet imagemagick. Su
 sudo apt install ttf-mscorefonts-installer imagemagick
 ```
 Pour lancer l'installation :
+
 ---
 ./install.sh
 ---
@@ -89,7 +92,7 @@ L’image `UserName.png` doit être convertie en RVB dans Gimp après l’instal
 
 #### One more thing
 
-You might noticed the GetProfileImage.sh.x and GetProfileImage.sh. The one with the .x extension is just the .sh file "compiled" with shc. The only thing different from them is that the .x file has an API key written into it.
+Vous avez peut-être remarqué les fichiers GetProfileImage.sh.x et GetProfileImage.sh. Celui avec l'extension .x est juste le fichier .sh "compilé" avec shc. La seule différence entre ces fichiers est que le fichier .x contient une clé API.
 
 ### Screenshots:
 
