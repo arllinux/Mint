@@ -16,10 +16,11 @@ Ou en redémarrant et dans le menu grub, ouvrez la ligne de commande avec 'C', e
 vbeinfo
 ```
 
-Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, notez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer exécutez la commande suivant pour récupérer l'ensemble du dépot git :
+Les sorties peuvent être différentes. Donc, une fois que vous avez trouvé vos résolutions prises en charge, notez celle qui correspond à votre résolution prise en charge la plus élevée (ou à la suivante en dessous). Maintenant, pour l’installer exécutez la commande suivante pour récupérer l'ensemble du dépot git :
 
 ```
-
+sudo apt install git
+puis
 git clone https://github.com/arllinux/mint
 
 ```
