@@ -69,7 +69,7 @@ let Grub_Min_Version=198
 Grub_File="/etc/default/grub"
 Grub_Dir=
 mkConfig_File=
-MVDIR="/boot/grub/themes/StreamBP/icons"
+MVDIR="/boot/grub/themes/StreamBP/icons/"
 CWD=$(pwd)
 
 #------------------------
@@ -171,16 +171,6 @@ for i in $Inst_Dir/*; do
 done
 echo "Les fichiers ont été copiés dans le dossier $Theme_Dir"
 
-# Linux Mint a bien une icône mais comme dans grub Linux Mint s'appelle "Ubuntu"
-# Modifier le nom de l'icône et supprimer "Ubuntu" original.
-echo "Vous utilisez une distribution Linux Mint ? : [(o)ui (n)on] "
-read mint
-if [[ $mint = oui || $mint = o ]]; then
-	cd $MVDIR
-	rm $CWD/ubuntu.png
-	mv $CWD/linuxmint.png $CWD/ubuntu.png
-fi
-
 # Vérifier si un répertoire d'icônes existe. Si des icônes ne sont pas incluses dans ce thème
 # vérifier s'il en existe dans ..../themes/icons.
 # S'il y en a, demander à l'utilisateur s'il veut les utiliser.
@@ -199,6 +189,16 @@ if [[ ! -d $Theme_Dir/icons && -d $Grub_Dir/themes/icons ]]; then
 elif [[ ! $Theme_Dir/icons && ! -d $Grub_Dir/themes/icons ]]; then
 	echo "Aucun répertoire d'icônes n'a été trouvé. Ce thème ne peut afficher les icônes."
 fi
+
+# Linux Mint a bien une icône mais comme dans grub Linux Mint s'appelle "Ubuntu"
+# Modifier le nom de l'icône et supprimer "Ubuntu" original.
+# echo "Vous utilisez une distribution Linux Mint ? : [(o)ui (n)on] "
+# read mint
+# if [[ $mint = oui || $mint = o ]]; then
+# 	cd $MVDIR
+# 	rm $CWD/ubuntu.png
+# 	mv $CWD/linuxmint.png $CWD/ubuntu.png
+# fi
 
 # Changer la résolution de GRUB pour qu'elle s'adapte à ce thème.
 if [[ $Theme_Resolution != "any" ]]; then
