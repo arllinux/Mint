@@ -1,0 +1,31 @@
+# Créer un bouton dans le tableau de bord pour lancer un script.
+
+Dans le script qui contient la commande :
+
+Ne pas écrire :
+rsync -av --del $SOURCEDIR $DESTDIR
+sudo shutdown -h now
+
+mais :
+rsync -av --del $SOURCEDIR $DESTDIR
+shutdown -h now
+
+Après avoir crée le script et l'avoir mis dans le répertoire ~/bin
+On crée le bouton :
+Clic droit sur le tableau de bord puis :
+"Créer un lanceur d'appication personnalisé"
+- Type : Application
+- Nom : Sauvegarde
+-Commande : mate-terminal -e /home/utilisateur/bin/sav_cle.sh
+Commentaire :
+
+Ensuite pour éviter de taper le mot de passe lors de l'ouverture du terminal :
+
+$ sudo visudo
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+utilisateur ALL=(ALL) NOPASSWD: /sbin/shutdown
+On a rajouté la dernière ligne en dessous de root
+
+---
