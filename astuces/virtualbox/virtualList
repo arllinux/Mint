@@ -1,0 +1,7 @@
+# Paquets indispensables pour virtualbox
+virtualbox         
+virtualbox-dkms 
+virtualbox-guest-dkms
+virtualbox-guest-util
+virtualbox-guest-x11 
+virtualbox-qt 

@@ -1,0 +1,28 @@
+#
+
+Changer le nom de l’utilisateur principal – Linux/Ubuntu
+Si l’on installe un serveur linux avec un nom d’utilisateur que l’on veut changer par la suite,
+la meilleure solution est sans doute de créer un nouvel utilisateur,
+avec les mêmes droits et ensuite d’effacer le premier utilisateur créé.
+
+Sous Ubuntu, les commandes root peuvent être utilisées en les préfixant par sudo.
+Il faut pour cela appartenir au groupe sudo.
+On passe en root à l’aide de la commande sudo su.
+Il ne sera alors demandé aucun mot de passe root, à moins que l’on en définisse
+un.
+
+On utilise la commande adduser pour ajouter un nouvel utilisateur
+nomUtilisateur :
+# adduser nomUtilisateur
+
+On ajoute l’utilisateur au groupe sudo :
+# usermod -aG sudo nomUtilisateur
+
+On peut regarder tous les groupes auxquels appartient l’utilisateur initial, et les attacher au nouvel utilisateur:
+# groups utilisateurInitial
+utilisateurInitial : utilisateurInitial adm cdrom sudo dip plugdev lpadmin sambashare
+
+# usermod -aG adm,cdrom,dip,plugdev,lpadmin,sambashare nomUtilisateur
+
+On peut alors supprimer l’utilisateur initial, en effaçant aussi le répertoire /home/utilisateurInitial
+# deluser --remove-home utilisateurInitial

@@ -10,7 +10,9 @@ Pour les premières étapes, nous allons devoir déterminer quelles résolutions
 hwinfo --framebuffer
 ```
 
-Ou en redémarrant et dans le menu grub, ouvrez la ligne de commande avec 'c', et entrez
+Ou
+
+en redémarrant et dans le menu grub, ouvrez la ligne de commande avec 'c', et entrez
 
 ```
 vbeinfo

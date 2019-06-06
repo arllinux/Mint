@@ -16,3 +16,6 @@ L'archive a été reconstruite pour Firefox 58
 Elle intègre https everywhere et Flagfoox et Adblock plus
 Son emplacement :
 http://sloteur.free.fr/param_mf/mozilla.tar.gz
+
+Pour faire fonctionner flash sur Firefox
+Il faut ajouter libavcodec54

@@ -1,0 +1,15 @@
+# Supprimer les étoiles lors de la frappe du mot de passe
+
+C'est la directive pwfeedback qui détermine l'affichage des étoiles.
+
+Pour voir les fichiers qui contiennent pwfeedback
+$ sudo grep pwfeedback /etc/
+/etc/sudoers.d/0pwfeedback
+
+Pour supprimer les étoiles il faut supprimer le fichier :
+$ sudo rm /etc/sudoers.d/0pwfeedback
+
+Tuer la session pour vérifier que cela marche.
+$ sudo -k
+
+Faire un essai : plus d'étoiles !!

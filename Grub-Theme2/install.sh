@@ -69,7 +69,11 @@ let Grub_Min_Version=198
 Grub_File="/etc/default/grub"
 Grub_Dir=
 mkConfig_File=
+<<<<<<< HEAD
 MVDIR="/boot/grub/themes/StreamBP/icons/"
+=======
+MVDIR="/boot/grub/themes/StreamBP/icons"
+>>>>>>> 24676495443d6fd4f196e33a44b8551585f223d0
 CWD=$(pwd)
 
 #------------------------
@@ -170,6 +174,16 @@ for i in $Inst_Dir/*; do
 	cp -r $i $Theme_Dir/$(basename $i)
 done
 echo "Les fichiers ont été copiés dans le dossier $Theme_Dir"
+
+# Linux Mint a bien une icône mais comme dans grub Linux Mint s'appelle "Ubuntu"
+# Modifier le nom de l'icône et supprimer "Ubuntu" original.
+echo "Vous utilisez une distribution Linux Mint ? : [(o)ui (n)on] "
+read mint
+if [[ $mint = oui || $mint = o ]]; then
+	cd $MVDIR
+	rm $CWD/ubuntu.png
+	mv $CWD/linuxmint.png $CWD/ubuntu.png
+fi
 
 # Vérifier si un répertoire d'icônes existe. Si des icônes ne sont pas incluses dans ce thème
 # vérifier s'il en existe dans ..../themes/icons.
