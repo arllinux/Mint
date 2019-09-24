@@ -4,7 +4,13 @@
 
 ![ScreenShot](http://i.imgur.com/yQCOjnR.png)
 
-Pour les premières étapes, nous allons devoir déterminer quelles résolutions sont supportées par grub, vous pouvez les trouver en installant `hwinfo`, et en lançant :
+Pour les premières étapes, nous allons devoir déterminer quelles résolutions sont supportées par grub, vous pouvez les trouver en installant `hwinfo`, 
+
+```
+sudo apt install hwinfo
+```
+
+et en lançant :
 
 ```
 hwinfo --framebuffer
@@ -59,7 +65,7 @@ sudo ./install.sh
 
 ```
 
-Il suffit de répondre aux quelques questions qui ont été traduites en français par le sloteur fou...
+Il suffit de répondre aux quelques questions qui ont été traduites en français...
 
 
 ### Problèmes connus :
