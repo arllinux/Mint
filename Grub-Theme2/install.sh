@@ -69,11 +69,9 @@ let Grub_Min_Version=198
 Grub_File="/etc/default/grub"
 Grub_Dir=
 mkConfig_File=
-<<<<<<< HEAD
 MVDIR="/boot/grub/themes/StreamBP/icons/"
 =======
 MVDIR="/boot/grub/themes/StreamBP/icons"
->>>>>>> 24676495443d6fd4f196e33a44b8551585f223d0
 CWD=$(pwd)
 
 #------------------------
