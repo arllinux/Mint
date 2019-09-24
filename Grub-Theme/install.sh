@@ -70,7 +70,6 @@ Grub_File="/etc/default/grub"
 Grub_Dir=
 mkConfig_File=
 MVDIR="/boot/grub/themes/StreamBP/icons/"
-=======
 MVDIR="/boot/grub/themes/StreamBP/icons"
 CWD=$(pwd)
 
